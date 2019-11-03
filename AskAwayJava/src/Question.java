@@ -7,10 +7,8 @@ public class Question extends Post {
         isResolved = false;
     }
 
-    public Post resolve(User user)
-    {
-        if (isResolved)
-        {
+    public Post resolve(User user) {
+        if (isResolved) {
             return this;
         }
         isResolved = true;

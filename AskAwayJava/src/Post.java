@@ -24,30 +24,35 @@ public class Post implements Comparable<Post> {
         recencyThresh = 300 * 1000;
     }
 
+    public Post() {
+        text = "";
+        isFlagged = false;
+        isStrike = false;
+        timestamp = new Date();
+        recencyThresh = 300 * 1000;
+    }
+
     @Override
     public int compareTo(Post other) {
         getRecency();
-        if (this.isRecent && !other.isRecent){
+        if (this.isRecent && !other.isRecent) {
             return 1;
         }
-        if (!this.isRecent && other.isRecent){
+        if (!this.isRecent && other.isRecent) {
             return -1;
         }
-        return (int)(-this.timestamp.getTime()+other.timestamp.getTime()); //FIXME maybe switch sign?
+        return (int) (-this.timestamp.getTime() + other.timestamp.getTime()); //FIXME maybe switch sign?
     }
 
     public boolean isFlagged() {
         return isFlagged;
     }
 
-    public boolean getRecency()
-    {
+    public boolean getRecency() {
         Date now = new Date();
-        if (now.getTime()-timestamp.getTime()<recencyThresh)
-        {
+        if (now.getTime() - timestamp.getTime() < recencyThresh) {
             isRecent = true;
-        }
-        else {
+        } else {
             isRecent = false;
         }
         return isRecent;
@@ -58,6 +63,10 @@ public class Post implements Comparable<Post> {
     }
 
     public String getPostID() {
+        if (postID == null) {
+            //FIXME get a reliable post ID
+            postID = "fixmepls";
+        }
         return postID;
     }
 
@@ -78,8 +87,7 @@ public class Post implements Comparable<Post> {
             return upvotes;
         } else {
             voters.add(user.getUserID());
-            if (upvotes==Integer.MAX_VALUE)
-            {
+            if (upvotes == Integer.MAX_VALUE) {
                 return upvotes;
             }
             return ++upvotes;
@@ -88,7 +96,7 @@ public class Post implements Comparable<Post> {
 
     public Post flag(User user) {
         //need confirmation for flagging? Also unflagging?
-        if (isFlagged){
+        if (isFlagged) {
             return this;
         }
         isFlagged = true;
@@ -97,8 +105,7 @@ public class Post implements Comparable<Post> {
     }
 
     public Post strike(User user) {
-        if (user instanceof Instructor)
-        {
+        if (user instanceof Instructor) {
             return this;
         }
         isStrike = true;
