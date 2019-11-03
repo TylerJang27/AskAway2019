@@ -7,7 +7,7 @@ public class Survey extends Post {
     private HashMap<String, ArrayList<String>> responses;
 
     public Survey(String tex, String[] options) {
-        super(tex, "Capital-G God");
+        super(tex, "Capital-G God", "the best possible ID");
         upvotes = Integer.MAX_VALUE;
         isRecent = true;
         for (String option : options) {
@@ -31,10 +31,7 @@ public class Survey extends Post {
         for (String o: options)
         {
             ArrayList<String> studentList = responses.get(o);
-            if (studentList.contains(userID))
-            {
                 studentList.remove(userID);
-            }
         }
         ArrayList<String> list = responses.get(option);
         list.add(userID);

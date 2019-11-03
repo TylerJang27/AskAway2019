@@ -23,13 +23,15 @@ public class Student extends User {
     }
 
     //returns a Question object to be asked, such that it can be integrated into the database
-    public Post askQuestion(String text) {
-        return (new Question(text, userID));
+    public Post askQuestion(String text, Group g) {
+    	String ID = g.getNextID();
+        return (new Question(text, userID, ID));
     }
 
     //returns a Comment object to be asked, such that it can be integrated into the database
-    public Post askComment(String text, Post parent) {
-        return (new Comment(text, userID, parent));
+    public Post askComment(String text, Post parent, Group g) {
+		String ID = g.getNextID();
+        return (new Comment(text, userID, parent, ID));
     }
 
     //adds a new Strike and returns the number of strikes

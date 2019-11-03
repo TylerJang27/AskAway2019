@@ -15,9 +15,10 @@ public class Post implements Comparable<Post> {
     private String struckBy;
     private ArrayList<String> voters;
 
-    public Post(String tex, String askID) {
+    public Post(String tex, String askID, String posID) {
         text = tex;
         askerID = askID;
+        postID = posID;
         isFlagged = false;
         isStrike = false;
         timestamp = new Date();
@@ -25,9 +26,10 @@ public class Post implements Comparable<Post> {
     }
 
     public Post() {
-        text = "";
+        text = "default post text";
         isFlagged = false;
         isStrike = false;
+        postID = "a default ID";
         timestamp = new Date();
         recencyThresh = 300 * 1000;
     }
@@ -63,10 +65,6 @@ public class Post implements Comparable<Post> {
     }
 
     public String getPostID() {
-        if (postID == null) {
-            //FIXME get a reliable post ID
-            postID = "fixmepls";
-        }
         return postID;
     }
 
@@ -111,5 +109,17 @@ public class Post implements Comparable<Post> {
         isStrike = true;
         struckBy = user.getUserID();
         return this;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Post)) {
+            return false;
+        }
+        Post ob = (Post) o;
+        if (!this.timestamp.equals((ob).timestamp)) return false;
+        if (!this.text.equals(ob.text)) return false;
+        if (!this.postID.equals(ob.postID)) return false;
+        return this.askerID==ob.askerID;
     }
 }

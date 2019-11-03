@@ -24,8 +24,9 @@ public class Instructor extends User {
     }
 
     //returns a Comment object to be asked, such that it can be integrated into the database
-    public Post askComment(String text, Post parent) {
-        return (new Comment(text, this, parent));
+    public Post askComment(String text, Post parent, Group g) {
+    	String ID = g.getNextID();
+        return (new Comment(text, this, parent, ID));
     }
 
     //returns a Group/session object, such that it can be integrated into the database
