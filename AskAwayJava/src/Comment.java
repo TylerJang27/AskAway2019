@@ -1,21 +1,28 @@
 public class Comment extends Post {
     private boolean instructor;
     private String parentID;
-    //private int upvotes; //FIXME see constructor
-    private boolean isRecent; //FIXME see constructor
+
+    public Comment(String tex, String authorID, Post parent) {
+        super(tex, authorID);
+        parentID = parent.getPostID();
+        instructor = false;
+    }
 
     public Comment(String tex, User author, Post parent) {
-        super(tex, author);
-        parentID = parent.getPostID();
-        if (author instanceof Instructor)
-        {
-            this.upvotes = Integer.MAX_VALUE; //FIXME uncertain if I need to make a new instance variable/how that works
-            isRecent = true; //FIXME same issue
+        this(tex, author.getUserID(), parent);
+        if (author instanceof Instructor) {
+            isRecent = true;
+            upvotes = Integer.MAX_VALUE;
+            instructor = true;
         }
     }
 
     @Override
     public boolean getRecency() {
         return true;
+    }
+
+    public boolean isInstructor() {
+        return instructor;
     }
 }

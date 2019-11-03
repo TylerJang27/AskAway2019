@@ -25,9 +25,9 @@ public class Group {
 		this.instructorJoinCode = myInstructorJoinCode;
 		this.instructors = myInstructors;
 		this.survey = mySurvey;
-		this.timeStart = newDate();
+		this.timeStart = new Date();
 		Date timeCopy = this.timeStart.copy();
-		this.timeEnd = newDate(this.timeStart.getTime()+3600000);
+		this.timeEnd = new Date(this.timeStart.getTime()+3600000);
 		//TODO: Determine if this should be by Question s or String s
 		for (Question s: theQuestions) {
 			boolean recent = s.getRecency();

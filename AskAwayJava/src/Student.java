@@ -25,13 +25,11 @@ public class Student extends User {
 	//returns a Question object to be asked, such that it can be integrated into the database
 	public Post askQuestion(String text) {
 		return (new Question(text, userID));
-		//TODO: FIX QUESTION CONSTRUCTOR
 	}
 
 	//returns a Comment object to be asked, such that it can be integrated into the database
-	public Post askComment(String text) {
-		return (new Comment(text, userID));
-		//TODO: FIX QUESTION CONSTRUCTOR
+	public Post askComment(String text, Post parent) {
+		return (new Comment(text, userID, parent));
 	}
 
 	//adds a new Strike and returns the number of strikes

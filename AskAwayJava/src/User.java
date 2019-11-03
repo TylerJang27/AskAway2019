@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class User {
 
-	private ArrayList<Question> strikeList;
-	private String userID;
-	private String email;
-	private String name;
-	private String passHash;
-	private boolean instructor;
+	protected ArrayList<Question> strikeList;
+	protected String userID;
+	protected String email;
+	protected String name;
+	protected String passHash;
+	protected boolean instructor;
 
 	//String sha256hex = DigestUtils.sha256Hex(originalString);
 
 	//accessor for the number of strikes a user has accumulated
 	public int getNumStrikes() {
-		return strikeList.size();
+		return strikeList.size(); //TODO: check to make sure the Questions were actually struck here?
 	}
 
 	//accessor for the user's ID

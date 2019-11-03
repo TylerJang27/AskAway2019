@@ -4,20 +4,20 @@ import java.util.Date;
 public class Post implements Comparable<Post> {
     private String text;
     private Date timestamp;
-    private int upvotes;
+    protected int upvotes;
     private boolean isFlagged;
     private boolean isStrike;
     private String askerID;
     private String postID;
     private int recencyThresh; //time until no longer considered recent, in milliseconds
-    private boolean isRecent;
+    protected boolean isRecent;
     private String flaggedBy;
     private String struckBy;
     private ArrayList<String> voters;
 
-    public Post(String tex, User asker) {
+    public Post(String tex, String askID) {
         text = tex;
-        askerID = asker.getUserID();
+        askerID = askID;
         isFlagged = false;
         isStrike = false;
         timestamp = new Date();
