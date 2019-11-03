@@ -1,7 +1,7 @@
 public class Comment extends Post {
     private boolean instructor;
     private String parentID;
-    private int upvotes; //FIXME see constructor
+    //private int upvotes; //FIXME see constructor
     private boolean isRecent; //FIXME see constructor
 
     public Comment(String tex, User author, Post parent) {
@@ -9,7 +9,7 @@ public class Comment extends Post {
         parentID = parent.getPostID();
         if (author instanceof Instructor)
         {
-            upvotes = Integer.MAX_VALUE; //FIXME uncertain if I need to make a new instance variable/how that works
+            this.upvotes = Integer.MAX_VALUE; //FIXME uncertain if I need to make a new instance variable/how that works
             isRecent = true; //FIXME same issue
         }
     }

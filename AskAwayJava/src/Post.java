@@ -26,7 +26,14 @@ public class Post implements Comparable<Post> {
 
     @Override
     public int compareTo(Post other) {
-        if (this.isRecent)//FIXME ============================
+        getRecency();
+        if (this.isRecent && !other.isRecent){
+            return 1;
+        }
+        if (!this.isRecent && other.isRecent){
+            return -1;
+        }
+        return (int)(-this.timestamp.getTime()+other.timestamp.getTime()); //FIXME maybe switch sign?
     }
 
     public boolean isFlagged() {
@@ -35,6 +42,14 @@ public class Post implements Comparable<Post> {
 
     public boolean getRecency()
     {
+        Date now = new Date();
+        if (now.getTime()-timestamp.getTime()<recencyThresh)
+        {
+            isRecent = true;
+        }
+        else {
+            isRecent = false;
+        }
         return isRecent;
     }
 
