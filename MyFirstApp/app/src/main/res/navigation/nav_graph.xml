@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/displayMessageActivity">
+
+    <activity
+        android:id="@+id/displayMessageActivity"
+        android:name="com.example.myfirstapp.DisplayMessageActivity"
+        android:label="activity_display_message"
+        tools:layout="@layout/activity_display_message" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.myfirstapp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/test"
+        android:name="com.example.myfirstapp.Test"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+</navigation>
