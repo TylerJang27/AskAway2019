@@ -1,7 +1,4 @@
-import Post.java
-import Question.java;
-import Comment.java;
-import Group.java;
+
 import java.util.ArrayList;
 
 public class Student extends User {
