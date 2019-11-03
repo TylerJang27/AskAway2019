@@ -29,7 +29,17 @@ public class Instructor extends User {
 	//returns a Comment object to be asked, such that it can be integrated into the database
 	public Post askComment(String text) {
 		return (new Comment(text, userID));
-		//TODO: FIX QUESTION CONSTRUCTOR
+		//TODO: FIX COMMENT CONSTRUCTOR
+	}
+
+	//returns a Group/session object, such that it can be integrated into the database
+	public Group createGroup(String groupID) {
+		String hashed = ___;
+		//TODO: FIX HASHING
+		//String hashed = DigestUtils.sha256Hex(originalString);
+		HashSet<String> theInstructors = new HashSet<String>();
+		theInstructors.add(this.getUserID());
+		return (new Group(groupID, hashed.substring(0, 3), hashed.substring(hashed.length()-3, hashed.length()), theInstructors));
 	}
 
 }
