@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AskAwayTemp.iml" filepath="$PROJECT_DIR$/AskAwayTemp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AskAwayJava.iml" filepath="$PROJECT_DIR$/AskAwayJava.iml" />
     </modules>
   </component>
 </project>

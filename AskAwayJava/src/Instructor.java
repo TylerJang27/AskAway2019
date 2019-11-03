@@ -1,8 +1,5 @@
-import Post.java
-import Question.java;
-import Comment.java;
-import Group.java;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Instructor extends User {
 
@@ -34,9 +31,9 @@ public class Instructor extends User {
 
 	//returns a Group/session object, such that it can be integrated into the database
 	public Group createGroup(String groupID) {
-		String hashed = ___;
+		String hashed = "";
 		//TODO: FIX HASHING
-		//String hashed = DigestUtils.sha256Hex(originalString);
+		//String hashed = DigestUtils.sha256Hex(hashed);
 		HashSet<String> theInstructors = new HashSet<String>();
 		theInstructors.add(this.getUserID());
 		return (new Group(groupID, hashed.substring(0, 3), hashed.substring(hashed.length()-3, hashed.length()), theInstructors));
