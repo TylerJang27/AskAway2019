@@ -17,7 +17,7 @@ public class Post implements Comparable<Post> {
 
     public Post(String tex, User asker) {
         text = tex;
-        askerID = asker.getID();
+        askerID = asker.getUserID();
         isFlagged = false;
         isStrike = false;
         timestamp = new Date();
@@ -26,7 +26,7 @@ public class Post implements Comparable<Post> {
 
     @Override
     public int compareTo(Post other) {
-        if (this.isRecent)
+        if (this.isRecent)//FIXME ============================
     }
 
     public boolean isFlagged() {
@@ -42,7 +42,7 @@ public class Post implements Comparable<Post> {
         return askerID;
     }
 
-    public String getID() {
+    public String getPostID() {
         return postID;
     }
 
@@ -59,10 +59,10 @@ public class Post implements Comparable<Post> {
     }
 
     public int upvote(User user) {
-        if (voters.contains(user.getID())) {
+        if (voters.contains(user.getUserID())) {
             return upvotes;
         } else {
-            voters.add(user.getID());
+            voters.add(user.getUserID());
             if (upvotes==Integer.MAX_VALUE)
             {
                 return upvotes;
@@ -77,7 +77,7 @@ public class Post implements Comparable<Post> {
             return this;
         }
         isFlagged = true;
-        flaggedBy = user.getID();
+        flaggedBy = user.getUserID();
         return this;
     }
 
@@ -87,7 +87,7 @@ public class Post implements Comparable<Post> {
             return this;
         }
         isStrike = true;
-        struckBy = user.getID();
+        struckBy = user.getUserID();
         return this;
     }
 }

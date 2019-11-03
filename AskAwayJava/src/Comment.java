@@ -6,7 +6,7 @@ public class Comment extends Post {
 
     public Comment(String tex, User author, Post parent) {
         super(tex, author);
-        parentID = parent.getID();
+        parentID = parent.getPostID();
         if (author instanceof Instructor)
         {
             upvotes = Integer.MAX_VALUE; //FIXME uncertain if I need to make a new instance variable/how that works
